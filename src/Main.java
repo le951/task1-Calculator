@@ -5,7 +5,7 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
 
-        String s = null;
+        String s;
 
         while(true) {
 

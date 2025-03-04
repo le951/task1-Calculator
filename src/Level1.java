@@ -4,8 +4,8 @@ public class Level1 {
 
     public static void main(String[] args) {
 
-        String in = null;
-        String operator = null;
+        String in;
+        String operator;
         Scanner sc = new Scanner(System.in);
 
         int a, b;

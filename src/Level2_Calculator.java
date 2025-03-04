@@ -67,7 +67,7 @@ public class Level2_Calculator {
             default:
                 return "Unknown operator";
         }
-        results.add(String.valueOf(in1 + " " + operator + " " + in2 + " = " + result));
+        results.add(in1 + " " + operator + " " + in2 + " = " + result);
 
         return results.getLast();
     }
