@@ -1,18 +1,21 @@
-import java.util.Scanner;
+import java.io.*;
 
 public class Main {
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        String s;
+        String in;
 
-        while(true) {
+        while (true) {
 
-            s = sc.nextLine();
-            if(s.equals("exit")) return;
-            System.out.println(s);
+            try {
+                in = br.readLine();
+                if (in.equals("exit")) return;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-
     }
 }
