@@ -38,6 +38,10 @@ public class Level1 {
                     System.out.println(a * b);
                     break;
                 case "/":
+                    if(b==0) {
+                        System.out.println("0으로 나눌 수 없습니다.");
+                        break;
+                    }
                     System.out.println(a / b);
                     break;
                 default:

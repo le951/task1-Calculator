@@ -77,9 +77,9 @@ public class Level2_Calculator {
     }
 
     // 사용성을 생각하면 마지막을 지우거나, results에 번호를 매겨 입력받아 지우는게 맞겠지만,
-    // 일단 과제대로 마지막만 지움. 솔직히 귀찮기도 하고.
+    // 일단 과제대로 처음만 지움. 솔직히 귀찮기도 하고.
     public void remove(){
-        results.removeLast();
+        results.removeFirst();
     }
 
     public void clear(){

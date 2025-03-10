@@ -1,13 +1,11 @@
 import java.util.ArrayDeque;
 import java.util.LinkedList;
 
-public class Calculator <T> {
+public class Calculator {
 
     public Calculator () {};
 
-    double result = 0;
-
-    public double postfix(LinkedList<String> postfix){
+    public static double postfix(LinkedList<String> postfix){
 
         ArrayDeque<Double> q = new ArrayDeque<>();
 
@@ -31,26 +29,25 @@ public class Calculator <T> {
                         break;
                     case DIVIDE:
                         temp = q.pop();
+                        if(temp == 0) throw new ArithmeticException("0으로 나눌 수 없습니다.");
+
                         q.push(q.pop() / temp);
                         break;
                     case SQUARE:
                         temp = q.pop();
                         q.push(Math.pow(q.pop(),temp));
                         break;
-                    case ROUND_BRACKET_S:
-                        break;
-                    case ROUND_BRACKET_E:
-                        break;
-                    case PERCENT:
-                        q.push(q.pop()/100);
-                        break;
+//                    case ROUND_BRACKET_S:
+//                        break;
+//                    case ROUND_BRACKET_E:
+//                        break;
+//                    case PERCENT:
+//                        q.push(q.pop()/100);
+//                        break;
                 }
             } else q.push(Double.parseDouble(postfix.get(i)));
-
-            System.out.println(q);
         }
-        result = q.pop();
-        return result;
+        return q.pop();
     }
 
 }

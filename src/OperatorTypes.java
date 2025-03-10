@@ -3,10 +3,10 @@ public enum OperatorTypes {
     MINUS('-', 1, 2),
     MULTI('*', 2, 2),
     DIVIDE('/', 2, 2),
-    SQUARE('^', 3, 2),
-    ROUND_BRACKET_S('(', 4, 0),
-    ROUND_BRACKET_E(')', 4, 0),
-    PERCENT('%', 4, 1);
+    SQUARE('^', 3, 2); // ,
+//    ROUND_BRACKET_S('(', 4, 0),
+//    ROUND_BRACKET_E(')', 4, 0),
+//    PERCENT('%', 4, 1);
 
 
     private char operator;

@@ -110,7 +110,8 @@ public class Parser {
         // 시작이 () 일 때가 문제인가? 숫자값이 들어올 때 까지
         // 이러면 괄호가 스킵되어 버리는데. 다시 분리해야 하나. for문 두 번 돌려서?
 
-        // 일단 add로 처리. push 쓰기엔 머리가 덜 돌아가네.
+        // (10)% 같은게 가능하지. 이거 처리해줘야 하네.
+
         for (int i : operator_Index.keySet()) {
             if (current == 0) {
                 if (operator_Index.get(i).operand() != 0) {
@@ -130,9 +131,10 @@ public class Parser {
             // operand? name? priority?
             // operand 대로 묶음. 0은 별도 처리를 위해 빼둠. 괄호 말고 또 0에 들어갈게 있나?
             switch (operator_Index.get(i)) {
-                case ROUND_BRACKET_S:
-                case ROUND_BRACKET_E:
-                    break;
+                // 괄호는 별도로 빼서 toPostfix 하고 통째로 피연산자 취급해서 더해야 하나?
+//                case ROUND_BRACKET_S:
+//                case ROUND_BRACKET_E:
+//                    break;
                 case PLUS:
                 case MINUS:
                 case MULTI:
@@ -151,8 +153,22 @@ public class Parser {
                     }
 //                    System.out.println(postfix);
                     break;
-                case PERCENT:
-                    break;
+
+                // 현재 방식 (첫 숫자 .add / 이후 피연산자 + 연산자 하나씩 add)
+                // 이 방식으로는 operand 1개 경우 오류 발생.
+//                case PERCENT:
+//                    if(operator_Index.get(i).priority() > current_operator.priority()){
+//                        postfix.add(current, infix.get(i+1));
+//                        postfix.add(current+1, infix.get(i));
+//                        current_operator = operator_Index.get(i);
+//                        current++;
+//                    } else {
+//                        postfix.add(infix.get(i+1));
+//                        postfix.add(infix.get(i));
+//                        current_operator = operator_Index.get(i);
+//                        current = postfix.size()-1;
+//                    }
+//                    break;
 //                default:
 //                    throw new IllegalStateException("Unexpected value: " + operator_Index.get(i));
             }
