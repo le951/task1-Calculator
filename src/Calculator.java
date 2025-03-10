@@ -3,14 +3,14 @@ import java.util.LinkedList;
 
 public class Calculator {
 
-    public Calculator () {};
+    public Calculator () {}
 
     public static double postfix(LinkedList<String> postfix){
 
         ArrayDeque<Double> q = new ArrayDeque<>();
 
         // temp 안 쓰고 pop 순서와 계산 순서가 맞아 떨어지게 할 방법이 있을까?
-        double temp = 0;
+        double temp;
 
         for(int i=0; i < postfix.size(); i++){
             if(OperatorTypes.isOperator(postfix.get(i))){
